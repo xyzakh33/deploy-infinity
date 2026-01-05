@@ -1,0 +1,646 @@
+/* ================= ROOT SYSTEM ================= */
+:root {
+  --space-dark: #050a1f;
+  --space-mid: #0b1440;
+  --space-light: #1b245d;
+  --accent-yellow: #f4b233;
+  --accent-blue: #2d5bff;
+}
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= GLOBAL BACKGROUND ================= */
+body {
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  background: linear-gradient(180deg, #050a1f 0%, #0b1440 30%, #1b245d 55%, #0b1440 75%, #050a1f 100%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ================= NAVBAR (DARI UTAMA) ================= */
+.header {
+  padding: 30px 0;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  font-weight: 600;
+}
+
+.nav-left img {
+  width: 32px;
+}
+
+.nav-center {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-center li {
+  cursor: pointer;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: 0.2s ease;
+  padding: 6px 16px;
+  border-radius: 20px;
+}
+
+.nav-center .active {
+  background: var(--accent-yellow);
+  color: #000;
+  font-weight: 600;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-right a {
+  color: #fff;
+  opacity: 0.8;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.btn-outline {
+  padding: 10px 22px;
+  border-radius: 20px;
+  border: 1px solid var(--accent-yellow);
+  background: transparent;
+  color: var(--accent-yellow);
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: var(--accent-yellow);
+  color: #000;
+}
+
+/* ================= HERO (DIPERTAHANKAN) ================= */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-stars {
+  position: absolute;
+  inset: 0;
+  background-image: url("Bintang.png");
+  background-repeat: repeat;
+  background-size: 420px;
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.cloud {
+  position: absolute;
+  z-index: 2;
+}
+
+.cloud-left {
+  left: -220px;
+  bottom: -180px;
+  width: 520px;
+}
+
+.cloud-right {
+  right: -200px;
+  bottom: -160px;
+  width: 460px;
+}
+
+.cloud img {
+  width: 100%;
+  height: auto;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-size: 64px;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+.hero-text em {
+  color: var(--accent-yellow);
+  font-style: italic;
+}
+
+/* ================= MOMENT SECTION (DIPERTAHANKAN) ================= */
+.moment-section {
+  position: relative;
+  padding: 160px 0 80px;
+  overflow: hidden;
+}
+
+.moment-container {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.moment-image {
+  border-top-left-radius: 64px;
+  border-bottom-right-radius: 64px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.moment-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.moment-content h2 {
+  font-size: 48px;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+
+.moment-content h2 span {
+  color: var(--accent-yellow);
+  font-style: italic;
+}
+
+.moment-content p {
+  max-width: 520px;
+  line-height: 1.9;
+  opacity: 0.9;
+  font-size: 16px;
+}
+
+/* ================= FRAMED GALLERY SECTION (DIPERTAHANKAN - UNIK) ================= */
+/* ================= FIX FRAMED GALLERY VISIBILITY ================= */
+.framed-gallery {
+  padding: 80px 0 120px;
+  display: flex;
+  justify-content: center;
+  background: transparent !important; /* Hapus debug color */
+}
+
+.framed-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 40px !important;
+  width: 100% !important;
+}
+
+/* Pastikan semua card visible */
+.framed-grid .framed-card:nth-child(1),
+.framed-grid .framed-card:nth-child(2),
+.framed-grid .framed-card:nth-child(3) {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+}
+
+.framed-card {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  min-height: 250px; /* Minimum height */
+}
+
+.framed-card .frame {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.framed-card img {
+  position: absolute;
+  inset: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  object-fit: cover;
+  border-radius: 4px;
+  z-index: 2;
+  display: block !important;
+  visibility: visible !important;
+}
+
+.framed-card {
+  filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.35));
+  transition: transform 0.3s ease;
+}
+
+.framed-card:hover {
+  transform: translateY(-8px);
+}
+
+/* ================= PROCESS (DIPERTAHANKAN) ================= */
+.process {
+  padding: 160px 60px;
+}
+
+.process h4 {
+  text-align: center;
+  letter-spacing: 2px;
+  opacity: 0.7;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.process h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+
+.process h2 span {
+  color: var(--accent-yellow);
+  font-style: italic;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1300px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.step {
+  width: 100%;
+  max-width: 280px;
+  height: 320px;
+  padding: 32px 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-10px);
+}
+
+.step h3 {
+  font-size: 36px;
+  margin-bottom: 16px;
+  color: var(--accent-yellow);
+}
+
+.step h4 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  opacity: 0.9;
+  font-weight: 600;
+}
+
+.step p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.75;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1200px) {
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .framed-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .framed-card:nth-child(3) {
+    grid-column: span 2;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .process {
+    padding: 100px 20px;
+  }
+
+  .process h2 {
+    font-size: 28px;
+  }
+
+  .moment-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .framed-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .framed-card:nth-child(3) {
+    grid-column: span 1;
+    max-width: 100%;
+  }
+}
+
+/* ================= CONTACT (DARI UTAMA) ================= */
+.contact {
+  padding: 160px 0 200px;
+  background: transparent;
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  padding: 40px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.contact-map {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
+  min-height: 400px;
+}
+
+.contact-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.map-info {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  background: rgba(5, 10, 31, 0.9);
+  padding: 16px 18px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 250px;
+}
+
+.map-info h4 {
+  font-size: 14px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.map-info p,
+.map-info span {
+  font-size: 12px;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.contact-form h2 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.emphasis {
+  color: var(--accent-yellow);
+  font-style: italic;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group.full {
+  margin-top: 24px;
+  grid-column: span 2;
+}
+
+.form-group label {
+  font-size: 12px;
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 8px 4px;
+  color: #fff;
+  outline: none;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-bottom-color: var(--accent-yellow);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.btn-submit {
+  margin-top: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff8a00, var(--accent-yellow));
+  color: #000;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+}
+
+.btn-submit span {
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* ================= CLIENT LOGOS (DARI UTAMA) ================= */
+.clients {
+  padding: 90px 0 110px;
+  background: #fff;
+}
+
+.clients-container {
+  display: flex;
+  justify-content: center;
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  gap: 18px 28px;
+  justify-content: center;
+  align-items: center;
+}
+
+.clients-grid img {
+  width: 120px;
+  height: 56px;
+  object-fit: contain;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.clients-grid img:hover {
+  opacity: 1;
+}
+
+/* ================= FOOTER (DARI UTAMA) ================= */
+.footer {
+  padding: 120px 0 0;
+  background: transparent;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 60px;
+  padding-bottom: 80px;
+}
+
+.footer-brand h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.85;
+  max-width: 280px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.footer-socials a {
+  font-size: 13px;
+  opacity: 0.8;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footer-socials a:hover {
+  opacity: 1;
+}
+
+.footer-col h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col li {
+  font-size: 14px;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.footer-col li:hover {
+  opacity: 1;
+}
+
+.footer-contact li {
+  line-height: 1.6;
+}
+
+.footer-bottom {
+  padding: 28px 0;
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.6;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
